@@ -6,6 +6,7 @@
     <title>Laravel Repositories and Services</title>
     <meta name="description" content="">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 
 <body>
@@ -31,6 +32,34 @@
                     <button type="submit" class="btn btn-info">Submit Post</button>
                 </div>
             </form>
+
+            <table class="table table-bordered">
+                                        <thead>
+                                        <tr>
+                                                <th>Title</th>
+                                                <th>Content </th>
+                                                <th>Edit</th>
+                                                <th>Delete</th>
+                                            </tr>
+                                        </thead>
+                                      @foreach($posts as $post)
+                                        <tbody>
+                                            <tr>
+                                                <td>{{$post->title}}</td>
+                                                <td>{{$post->body}}</td>
+                                            <form action="{{route('edit.post', $post->id)}}" method="GET">
+    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-success btn-xs" ><span class="fa fa-pencil fa-fw"></span></button></p></td>
+  </form>
+                                    <form action="{{route('destroy.post', $post->id)}}" method="POST">
+      {{csrf_field()}}
+      {{method_field('DELETE')}}
+    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" ><span class="fa fa-fw fa-trash"></span></button></p></td>
+    </form>
+                                                
+                                            </tr>
+                                        </tbody>
+                                        @endforeach
+                                    </table>
         </div>
     </div>
 </body>

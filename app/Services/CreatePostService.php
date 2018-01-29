@@ -35,12 +35,14 @@ class CreatePostService
 	}
 
 	public function update()
-	{}
+	{
+		
+	}
 
 
 	public function delete($id)
 	{
-
+      return $this->post->delete($id);
 	}
 
 }

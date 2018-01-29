@@ -38,16 +38,18 @@ class PostController
        
        $post = $this->postservice->read($id);
 
-       dd($post);
+       // dd($post);
     }
 
     public function update(PostRequest $request)
     {
-
+    
     }
 
-    public function delete()
+    public function delete($id)
     {
+     $this->postservice->delete($id);
 
+     return back()->with(['status'=>'Deleted successfully']);
     }
 }
