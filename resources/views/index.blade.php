@@ -55,6 +55,7 @@
       {{method_field('DELETE')}}
     <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-xs" ><span class="fa fa-fw fa-trash"></span></button></p></td>
     </form>
+    
                                                 
                                             </tr>
                                         </tbody>

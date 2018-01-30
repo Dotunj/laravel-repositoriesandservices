@@ -14,6 +14,11 @@ class PostRepository
     $this->post = $post;
   }
 
+  public function create($attributes)
+  {
+    return $this->post->create($attributes);
+  }
+
   public function all()
   {
     return $this->post->all();

@@ -6,7 +6,7 @@ use App\Post;
 use App\Repositories\PostRepository;
 use Illuminate\Http\Request;
 
-class CreatePostService
+class PostService
 {
 	public function __construct(PostRepository $post)
 	{
@@ -34,9 +34,11 @@ class CreatePostService
      return $this->post->find($id);
 	}
 
-	public function update()
+	public function update(Request $request, $id)
 	{
-		
+	  $attributes = $request->all();
+	  
+      return $this->post->update($id, $attributes);
 	}
 
 
